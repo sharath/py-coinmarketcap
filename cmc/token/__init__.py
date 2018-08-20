@@ -1,4 +1,3 @@
-
 class Token:
     def __init__(self, symbol: str, name: str, price_usd: float, price_btc: float, hchange: float, dchange: float,
                  wchange: float) -> None:
@@ -11,4 +10,4 @@ class Token:
         self.wchange = wchange
 
     def __str__(self):
-        return f'{self.symbol} {self.name} {self.price_usd}'
+        return str(vars(self))

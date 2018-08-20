@@ -2,11 +2,12 @@ import time
 import threading
 
 from ..token import Token
+
 from ..worker import WorkerCircularQueue, Worker
 
 
 class CMCService:
-    def __init__(self, apikeys=None, start=True) -> None:
+    def __init__(self, update_interval: float = 15, apikeys=None, start=True) -> None:
         self.__lock = threading.Lock()
         self.__cache = {}
         self.__q = WorkerCircularQueue()
@@ -18,7 +19,7 @@ class CMCService:
             self.__q.add(Worker())
         self.__update()
         if start:
-            self.start_service()
+            self.start_service(update_interval)
 
     def __update(self):
         worker = self.__q.next()
@@ -27,12 +28,12 @@ class CMCService:
             for token in tokens:
                 self.__cache[token.name] = token
 
-    def __update_service(self, interval: float = 15) -> None:
+    def __update_service(self, update_interval: float = 15) -> None:
         start = time.time()
         while True:
             if self.__kill:
                 return
-            if time.time() - start > interval:
+            if time.time() - start > update_interval:
                 start - time.time()
                 self.__update()
 
@@ -43,6 +44,6 @@ class CMCService:
     def kill_service(self):
         self.__kill = True
 
-    def start_service(self):
+    def start_service(self, update_interval: float = 15):
         self.__kill = False
-        threading.Thread(target=self.__update_service).start()
+        threading.Thread(target=self.__update_service, kwargs={'update_interval': update_interval}).start()
