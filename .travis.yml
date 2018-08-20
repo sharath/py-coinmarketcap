@@ -1,12 +1,10 @@
 language: python
-addons:
-  apt:
-    update: true
 python:
- - "3.6"
+- "3.6"
 before_install:
- - sudo apt-get python-dev build-essential
+- sudo apt-get update
+- sudo apt-get install python-dev build-essential
 install:
- - pip install . -q
+- pip install . -q
 script:
- - python -m pytest test
+- python -m pytest test

@@ -1,4 +1,5 @@
 # pycmc
+[![Build Status](https://travis-ci.org/sharath/pycmc.svg?branch=master)](https://travis-ci.org/sharath/pycmc)
 
 Installation: `pip install pycmc`
 
