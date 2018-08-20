@@ -1,0 +1,12 @@
+language: python
+addons:
+  apt:
+    update: true
+python:
+ - "3.6"
+before_install:
+ - sudo apt-get python-dev build-essential
+install:
+ - pip install . -q
+script:
+ - python -m pytest test
