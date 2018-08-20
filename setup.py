@@ -5,8 +5,7 @@ requires = open('requirements.txt', 'r').read().splitlines()
 setup(
     name='cmc',
     version='0.0.1',
-    description='threadsafe coinmarketcap pro api library for use in high performance environments with support '
-                'for webscraping as well as the pro api',
+    description='threadsafe coinmarketcap pro api library for use in high performance environments',
     packages=find_packages(),
     license='MIT',
     author='sharath',
