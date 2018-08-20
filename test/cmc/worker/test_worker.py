@@ -1,4 +1,4 @@
-from cmc import WorkerCircularQueue, Worker
+from cmc.worker import WorkerCircularQueue, Worker
 
 
 class TestWorkerCircularQueue:
