@@ -1,5 +1,5 @@
 # py-coinmarketcap
-[![Build Status](https://travis-ci.org/sharath/pycmc.svg?branch=master)](https://travis-ci.org/sharath/pycmc)
+[![Build Status](https://travis-ci.org/sharath/py-coinmarketcap.svg?branch=master)](https://travis-ci.org/sharath/py-coinmarketcap)
 
 Installation: `pip install py-coinmarketcap`
 
